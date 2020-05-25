@@ -30,4 +30,36 @@ BD_PORT = 3306
 14. ```composer dump_autoload ```
 15. ```php artisan serve``` <br />
   http://127.0.0.1
+  
+### Social Module. 
+ 1. ``` composer require larave/ui ```
+ 2. ``` composer require socialite ```
+ * Add ```config/app.php``` <br />
+  ``` 'providers' => [
+      // Other service providers...
+      Laravel\Socialite\SocialiteServiceProvider::class,
+      ],
+  ```
+  
+  2. Add <br/>
+
+  ```
+  'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+  ```
+  
+* Create Googel and Facebook credentials. <br/>
+  Obtain and add in env variable. <br/>
+    clint_id  <br/>
+    client_secret </br>
+    redirect </br>
+* Edit and add  ```config/services.php``` <br/>
+```
+     'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
+    ],
+```
+* Authentication  
+ ```php artisan ui vue --auth```
 
